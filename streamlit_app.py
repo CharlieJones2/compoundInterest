@@ -8,6 +8,7 @@ years_list = []
 values_list = []
 contributions = []
 
+st.title('Compound Interest Calculator')
 initial = float(st.number_input("Enter initial deposit amount(£): ",min_value=0, max_value=1000000, step=1))
 rate = float(st.number_input("Enter annual interest rate (%): ", min_value=0, max_value=100, value=5, step=1))
 years = int(st.number_input("Enter number of years: ", min_value=1, max_value=150, step=1))
