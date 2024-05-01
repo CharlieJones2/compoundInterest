@@ -26,5 +26,5 @@ if calculate:
     
     values_list = [f'£{value:,.2f}' for value in values_list]
     contributions = [f'£{contribution:,.2f}' for contribution in contributions]
-    st.write(df.to_string(index=False))
+    st.write(df)
     
