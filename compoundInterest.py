@@ -11,7 +11,7 @@ def compound_interest(initial_deposit, rate, years, monthly_contribution):
     
     # Calculate compound interest with monthly contributions
     for i in range(years):
-        years_list.append(str(i+1))
+        years_list.append(i+1)
         for j in range(12):
             total_value += monthly_contribution
             total_contribution += monthly_contribution
