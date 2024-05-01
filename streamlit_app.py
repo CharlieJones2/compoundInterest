@@ -23,9 +23,10 @@ if calculate:
     df = pd.DataFrame({'Year': years_list, 'Value': values_list, 'Contribution': contributions})
 
     st.line_chart(data=df,x='Year',y=['Value','Contribution'], color=["#268bd2","#657b83"])
-    
+    interest_earned = [value - contribution for (value, contribution) in zip(values_list, contributions)]
     values_list_form = [f'£{value:,.2f}' for value in values_list]
     contributions_form = [f'£{contribution:,.2f}' for contribution in contributions]
+    interest_earned = [f'£{interest:,.2f}' for interest in interest_earned]
     df_form = pd.DataFrame({'Year': years_list, 'Value': values_list_form, 'Contribution': contributions_form})
     st.write(df_form)
     
