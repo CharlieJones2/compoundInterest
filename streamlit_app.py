@@ -26,6 +26,6 @@ if calculate:
     
     values_list_form = [f'£{value:,.2f}' for value in values_list]
     contributions_form = [f'£{contribution:,.2f}' for contribution in contributions]
-    df_form = pd.DataFrame({'Year': years_list, 'Value': values_list_form, 'Contribution': contributions_form}, index='Year')
+    df_form = pd.DataFrame({'Year': years_list, 'Value': values_list_form, 'Contribution': contributions_form})
     st.write(df_form)
     
