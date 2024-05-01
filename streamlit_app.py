@@ -24,7 +24,8 @@ if calculate:
 
     st.line_chart(data=df,x='Year',y=['Value','Contribution'], color=["#268bd2","#657b83"])
     
-    values_list = [f'£{value:,.2f}' for value in values_list]
-    contributions = [f'£{contribution:,.2f}' for contribution in contributions]
-    st.write(df)
+    values_list_form = [f'£{value:,.2f}' for value in values_list]
+    contributions_form = [f'£{contribution:,.2f}' for contribution in contributions]
+    df_form = pd.DataFrame({'Year': years_list, 'Value': values_list_form, 'Contribution': contributions_form}, index=False)
+    st.write(df_form)
     
