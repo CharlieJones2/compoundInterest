@@ -23,5 +23,8 @@ if calculate:
     df = pd.DataFrame({'Year': years_list, 'Value': values_list, 'Contribution': contributions})
 
     st.line_chart(data=df,x='Year',y=['Value','Contribution'], color=["#268bd2","#657b83"])
-    st.write(df)
+    
+    values_list = [f'£{value:,.2f}' for value in values_list]
+    contributions = [f'£{contribution:,.2f}' for contribution in contributions]
+    st.write(df.to_string(index=False))
     
