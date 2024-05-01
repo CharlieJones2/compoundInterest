@@ -19,7 +19,7 @@ if calculate:
     st.session_state.calculatePressed = True
 
     total_value, total_contribution, years_list, values_list, contributions = compound_interest(initial, rate, years, monthly_contribution)
-    st.write(f'After {years} years, your saving will be worth £{round(total_value,2)}, having earned interest of £{round(total_value-total_contribution,2)}')
+    st.write(f'After {years} years, your saving will be worth £{total_value:,.2f}, having earned interest of £{total_value-total_contribution:,.2f}')
     df = pd.DataFrame({'Year': years_list, 'Value': values_list, 'Contribution': contributions})
 
     st.line_chart(data=df,x='Year',y=['Value','Contribution'], color=["#268bd2","#657b83"])
