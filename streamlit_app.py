@@ -22,4 +22,4 @@ if calculate:
     st.write(f'After {years} years, your saving will be worth £{round(total_value,2)}, having earned interest of £{round(total_value-total_contribution,2)}')
     df = pd.DataFrame({'Year': years_list, 'Value': values_list, 'Contribution': contributions})
 
-    st.line_chart(data=df,x='Year',y='Value', color="#268bd2")
+    st.line_chart(data=df,x='Year',y=['Value','Contribution'], color=["#268bd2","#657b83"])
