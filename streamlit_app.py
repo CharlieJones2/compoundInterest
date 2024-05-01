@@ -24,4 +24,5 @@ if calculate:
 
     st.line_chart(data=df,x='Year',y=['Value','Contribution'], color=["#268bd2","#657b83"])
     
-    st.write(df)
+    df_pivot = df.pivot(index=None, columns='Year')
+    st.write(df_pivot)
