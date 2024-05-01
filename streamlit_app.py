@@ -28,5 +28,5 @@ if calculate:
     contributions_form = [f'£{contribution:,.2f}' for contribution in contributions]
     interest_earned = [f'£{interest:,.2f}' for interest in interest_earned]
     df_form = pd.DataFrame({'Year': years_list, 'Value': values_list_form, 'Contribution': contributions_form, 'Interest Earned': interest_earned})
-    st.write(df_form)
+    st.dataframe(df_form, hide_index=True)
     
