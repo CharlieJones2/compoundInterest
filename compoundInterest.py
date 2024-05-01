@@ -1,12 +1,7 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-
-years_list = []
-values_list = []
-contributions = []
-
 def compound_interest(initial_deposit, rate, years, monthly_contribution):
+    years_list = []
+    values_list = []
+    contributions = []
     # Convert years to months
     rate = rate / 100
     
@@ -24,4 +19,4 @@ def compound_interest(initial_deposit, rate, years, monthly_contribution):
         total_value *= (1 + rate)
         values_list.append(total_value)
     
-    return total_value, total_contribution
+    return total_value, total_contribution, years_list, values_list, contributions

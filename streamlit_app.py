@@ -1,12 +1,6 @@
 import streamlit as st
 from compoundInterest import compound_interest
-import seaborn as sns
-import matplotlib.pyplot as plt
 import pandas as pd
-
-years_list = []
-values_list = []
-contributions = []
 
 st.title('Compound Interest Calculator')
 initial = float(st.number_input("Enter initial deposit amount(£): ",min_value=0, max_value=1000000, step=1))
