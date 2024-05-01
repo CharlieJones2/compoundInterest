@@ -15,15 +15,24 @@ years = int(st.number_input("Enter number of years: ", min_value=1, max_value=15
 monthly_contribution = float(st.number_input("Enter monthly contribution amount(£): ", min_value=0, max_value=1000000))
 
 # Calculate total value
-total_value = compound_interest(initial, rate, years, monthly_contribution)[0]
-total_contribution = compound_interest(initial, rate, years, monthly_contribution)[1]
-st.write(f'After {years} years, your saving will be worth £{total_value}, having earned interest of £{total_value-total_contribution}')
-df = pd.DataFrame({'Year': years_list, 'Value': values_list, 'Contribution': contributions})
+if 'calculatePressed' not in st.session_state:
+    st.session_state.buttonPressed = False
+calculate = st.button('Calculate')
+calculatePressed = False
 
-plt.figure()
-sns.lineplot(data=df,x='Year',y='Value', label='Total Value')
-sns.lineplot(data=df, x='Year', y='Contribution', label='Total Contribution')
-plt.xlabel('Year')
-plt.ylabel('Total Value')
-plt.show()
-plt.clf()
+if calculate:
+    st.session_state.calculate = True
+    st.session_state.calculatePressed = True
+
+    total_value = compound_interest(initial, rate, years, monthly_contribution)[0]
+    total_contribution = compound_interest(initial, rate, years, monthly_contribution)[1]
+    st.write(f'After {years} years, your saving will be worth £{round(total_value,2)}, having earned interest of £{round(total_value-total_contribution,2)}')
+    df = pd.DataFrame({'Year': years_list, 'Value': values_list, 'Contribution': contributions})
+
+    plt.figure()
+    sns.lineplot(data=df,x='Year',y='Value', label='Total Value')
+    sns.lineplot(data=df, x='Year', y='Contribution', label='Total Contribution')
+    plt.xlabel('Year')
+    plt.ylabel('Total Value')
+    plt.show()
+    plt.clf()
